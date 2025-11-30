@@ -6,7 +6,7 @@ import pg from "pg";
 const db = new pg.Client({
   user: "capital_quiz_db_user",
   host: "dpg-d48e1lodl3ps73bb8en0-a.singapore-postgres.render.com",
-  database: "book_notes",
+  database: "capital_quiz_db",
   password: "3wzJxOQO3aP65WLqmbCvEUJfVV8dgQhd",
   port: 5432,
   ssl: {
