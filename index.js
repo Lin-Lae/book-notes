@@ -4,16 +4,27 @@ import bodyParser from "body-parser";
 import pg from "pg";
 
 const db = new pg.Client({
-  database: "books",
-  user: "postgres",
-  host: "localhost",
-  password: "999999999",
-  port: 5432
+  user: "capital_quiz_db_user",
+  host: "dpg-d48e1lodl3ps73bb8en0-a.singapore-postgres.render.com",
+  database: "book_notes",
+  password: "3wzJxOQO3aP65WLqmbCvEUJfVV8dgQhd",
+  port: 5432,
+  ssl: {
+    rejectUnauthorized: false // important for Render
+  }
 });
-db.connect();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// Connect to DB
+db.connect(err => {
+  if (err) {
+    console.error("Database connection error:", err.stack);
+  } else {
+    console.log("Database connected successfully!");
+  }
+});
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
