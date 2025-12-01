@@ -52,8 +52,9 @@ app.get("/", async (req, res) => {
 
   const result = await db.query(query, params);
   books = result.rows;
+  const totalBooks = books.length; // count total books
 
-  res.render("index.ejs", { books: books });
+  res.render("index.ejs", { books: books, totalBooks });
 });
 
 
@@ -69,6 +70,9 @@ app.get("/book/:id", async (req, res) => {
   res.render("book_note.ejs", { book: book });
 });
 
+app.get("/views/index.ejs", async (req, res) => {
+  res.redirect("/");
+});
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

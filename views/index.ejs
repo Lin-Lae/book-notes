@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,72 +10,86 @@
 
 <body>
 
-<header class="header">
-    <div class="logo">Book Notes</div>
+    <header class="header">
+        <div class="logo">Book Notes</div>
 
-    <nav class="nav">
-        <a href="/?sort=newest">Newest</a>
-        <a href="/?sort=rating">Rating</a>
+        <nav class="nav">
+            <a href="/?sort=newest">Newest</a>
+            <a href="/?sort=rating">Rating</a>
 
-        <div class="dropdown">
-            <button class="dropbtn">Genre ▾</button>
-            <div class="dropdown-content">
-                <a href="/?genre=Fiction">Fiction</a>
-                <a href="/?genre=Thriller">Thriller / Horror</a>
-                <a href="/?genre=Self-Help">Self-Help</a>
-                <a href="/?genre=Philosophy">Philosophy / Spiritual</a>
-                <a href="/?genre=Autobiography">Autobiography</a>
-            </div>
-        </div>
-        
-        <a href="/?sort=title">Title (A→Z)</a>
-    </nav>
-</header>
-
-
-<main class="container">
-
-    <section class="intro">
-        <h1>Books I’ve read</h1>
-        <p>
-            Welcome to my Book Notes! </br>Here, I keep track of all the books I’ve read, along with my personal ratings.  
-            I use this page to remember what I liked (or didn’t) and to share my opinions with anyone curious enough to look.  
-            You’ll find a variety of genres, and the ratings reflect my own opinions. 
-        </p>
-    </section>
-
-    <section class="book-grid">
-        <% books.forEach(book => { %>
-            <a href="/book/<%= book.id %>" class="card-link">
-                <div class="book-card">
-                    <img src="https://covers.openlibrary.org/b/<%= book.identifier_type %>/<%= book.identifier_value %>-M.jpg" alt="Book cover" class="book-cover">
-
-                    <h3 class="book-title"><%= book.title %></h3>
-                    <p class="book-author"><%= book.author %></p>
-                    <p class="book-genre"><%= book.genre %></p>
-
-                    <div class="details">
-                        <span class="rating">Rating: <%= book.rating %>/10</span>
-                        <span class="date">Added: <%= book.date_added %></span>
-                    </div>
+            <div class="dropdown">
+                <button class="dropbtn">Genre ▾</button>
+                <div class="dropdown-content">
+                    <a href="/?genre=Fiction">Fiction</a>
+                    <a href="/?genre=Thriller">Thriller / Horror</a>
+                    <a href="/?genre=Self-Help">Self-Help</a>
+                    <a href="/?genre=Philosophy">Philosophy / Spiritual</a>
+                    <a href="/?genre=Autobiography">Autobiography</a>
                 </div>
-            </a>
-        <% }) %>
-    </section>
+            </div>
 
-</main>
+            <a href="/?sort=title">Title (A→Z)</a>
+        </nav>
+    </header>
 
-<footer>
-  <p>© <span id="year"></span> Book Notes. All rights reserved.</p>
-  <p>Book cover images from Open Library and other online resources.</p>
-  <!-- <p>Last updated: <%= books[0].date_added %> -->
-  </p>
-  <p>All opinions expressed are personal and do not reflect those of authors or publishers.</p>
-</footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    <main class="container">
+
+        <section class="intro">
+            <h1>Books I’ve read</h1>
+            <p>
+                Welcome to my Book Notes! </br>Here, I keep track of all the books I’ve read, along with my personal
+                ratings.
+                I use this page to remember what I liked (or didn’t) and to share my opinions with anyone curious enough
+                to look.
+                I’ve uploaded a total of <%= totalBooks %> books.
+                You’ll find a variety of genres, and the ratings reflect my own opinions. </br>
+
+                If you’d like to discuss books, I’d be happy to hear from you! You can reach me via
+                <a href="mailto:lynnlae22@gmail.com">email.</a>
+            </p>
+        </section>
+
+        <section class="book-grid">
+            <% books.forEach(book=> { %>
+                <a href="/book/<%= book.id %>" class="card-link">
+                    <div class="book-card">
+                        <img src="https://covers.openlibrary.org/b/<%= book.identifier_type %>/<%= book.identifier_value %>-M.jpg"
+                            alt="Book cover" class="book-cover">
+
+                        <h3 class="book-title">
+                            <%= book.title %>
+                        </h3>
+                        <p class="book-author">
+                            <%= book.author %>
+                        </p>
+                        <p class="book-genre">
+                            <%= book.genre %>
+                        </p>
+
+                        <div class="details">
+                            <span class="rating">Rating: <%= book.rating %>/10</span>
+                            <span class="date">Added: <%= book.date_added %></span>
+                        </div>
+                    </div>
+                </a>
+                <% }) %>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> Book Notes. All rights reserved.</p>
+        <p>Book cover images from Open Library and other online resources.</p>
+        <!-- <p>Last updated: <%= books[0].date_added %> -->
+        </p>
+        <p>All opinions expressed are personal and do not reflect those of authors or publishers.</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
+
 </html>

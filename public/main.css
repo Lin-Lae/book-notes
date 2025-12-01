@@ -23,7 +23,7 @@ body {
     font-weight: 700;
 }
 
-.nav a {
+.nav a, .intro a{
     margin-right: 20px;
     text-decoration: none;
     color: #90caf9;
@@ -32,6 +32,10 @@ body {
 }
 
 .nav a:hover {
+    text-decoration: underline;
+}
+
+.intro a:hover {
     text-decoration: underline;
 }
 

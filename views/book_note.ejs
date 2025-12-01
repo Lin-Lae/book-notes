@@ -67,12 +67,23 @@
       white-space: pre-line;     /* RESPECT NEW LINES FROM DATABASE */
       color: #e0e0e0;
     }
+
+    h1 a{
+    text-decoration: none;
+    color: #90caf9;
+    /* lighter blue */
+}
+
+h1 a:hover {
+    text-decoration: underline;
+}
   </style>
   
 </head>
 
 <body>
   <div class="container">
+    <h1><a href="/views/index.ejs">Book Notes</a></h1>
     <div class="book-header">
       <img src="https://covers.openlibrary.org/b/<%= book.identifier_type %>/<%= book.identifier_value %>-L.jpg" alt="Book Cover">
 
