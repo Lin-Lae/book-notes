@@ -1,4 +1,4 @@
-# Book Notes 📚
+# Book Notes
 
 A simple and efficient web application for managing and displaying book notes.  
 Built with **Node.js**, **Express**, **EJS**, and **PostgreSQL**.
@@ -16,7 +16,7 @@ Check it live here: [Book Notes](https://booknotes-4a2v.onrender.com/)
 
 ---
 
-## 💻 Run Locally
+## Run Locally
 
 ### 1️⃣ Clone this repository
 ```bash
